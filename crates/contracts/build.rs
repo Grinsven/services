@@ -21,6 +21,8 @@ const AVALANCHE: &str = "43114";
 const BNB: &str = "56";
 const OPTIMISM: &str = "10";
 const LENS: &str = "232";
+const LINEA: &str = "59144";
+const PLASMA: &str = "9745";
 
 fn main() {
     // NOTE: This is a workaround for `rerun-if-changed` directives for
@@ -214,6 +216,22 @@ fn main() {
                     deployment_information: Some(DeploymentInformation::BlockNumber(2612937)),
                 },
             )
+            .add_network(
+                LINEA,
+                Network {
+                    address: addr("0x2c4c28DDBdAc9C5E7055b4C863b72eA0149D8aFE"),
+                    // <https://explorer.lens.xyz/tx/0x0730c21885153dcc9a25ab7abdc38309ec7c7a8db15b763fbbaf574d1e7ec498>
+                    deployment_information: Some(DeploymentInformation::BlockNumber(2612937)),
+                },
+            )
+            .add_network(
+                PLASMA,
+                Network {
+                    address: addr("0x2c4c28DDBdAc9C5E7055b4C863b72eA0149D8aFE"),
+                    // <https://explorer.lens.xyz/tx/0x0730c21885153dcc9a25ab7abdc38309ec7c7a8db15b763fbbaf574d1e7ec498>
+                    deployment_information: Some(DeploymentInformation::BlockNumber(2612937)),
+                },
+            )
     });
     generate_contract_with_config("GPv2Settlement", |builder| {
         builder
@@ -305,6 +323,22 @@ fn main() {
                     deployment_information: Some(DeploymentInformation::BlockNumber(2621745)),
                 },
             )
+            .add_network(
+                LINEA,
+                Network {
+                    address: addr("0x9008D19f58AAbD9eD0D60971565AA8510560ab41"),
+                    // <https://explorer.lens.xyz/tx/0x01584b767dda7b115394b93dbcfecadfe589862ae3f7957846a2db82f2f5c703>
+                    deployment_information: Some(DeploymentInformation::BlockNumber(2621745)),
+                },
+            )
+            .add_network(
+                PLASMA,
+                Network {
+                    address: addr("0x9008D19f58AAbD9eD0D60971565AA8510560ab41"),
+                    // <https://explorer.lens.xyz/tx/0x01584b767dda7b115394b93dbcfecadfe589862ae3f7957846a2db82f2f5c703>
+                    deployment_information: Some(DeploymentInformation::BlockNumber(2621745)),
+                },
+            )
     });
     // EIP-1271 contract - SignatureValidator
     generate_contract("ERC1271SignatureValidator");
@@ -319,6 +353,7 @@ fn main() {
             .add_network_str(AVALANCHE, "0xbb00FF08d01D300023C629E8fFfFcb65A5a578cE")
             .add_network_str(BNB, "0xB971eF87ede563556b2ED4b1C0b0019111Dd85d2")
             .add_network_str(LENS, "0x6ddD32cd941041D8b61df213B9f515A7D288Dc13")
+            .add_network_str(LINEA, "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a")
         // Not available on Gnosis Chain
     });
     generate_contract_with_config("UniswapV3QuoterV2", |builder| {
@@ -332,6 +367,7 @@ fn main() {
             .add_network_str(OPTIMISM, "0x61fFE014bA17989E743c5F6cB21bF9697530B21e")
             .add_network_str(POLYGON, "0x61fFE014bA17989E743c5F6cB21bF9697530B21e")
             .add_network_str(LENS, "0x1eEA2B790Dc527c5a4cd3d4f3ae8A2DDB65B2af1")
+            .add_network_str(LINEA, "0x42bE4D6527829FeFA1493e1fb9F3676d2425C3C1")
         // Not listed on Gnosis and Sepolia chains
     });
     generate_contract_with_config("WETH9", |builder| {
@@ -349,6 +385,8 @@ fn main() {
             .add_network_str(OPTIMISM, "0x4200000000000000000000000000000000000006")
             .add_network_str(POLYGON, "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270")
             .add_network_str(LENS, "0x6bDc36E20D267Ff0dd6097799f82e78907105e2F")
+            .add_network_str(LINEA, "0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f")
+            .add_network_str(PLASMA, "0x6100E367285b01F48D07953803A2d8dCA5D19873")
     });
     generate_contract_with_config("IUniswapV3Factory", |builder| {
         // <https://github.com/Uniswap/v3-periphery/blob/697c2474757ea89fec12a4e6db16a574fe259610/deploys.md>
@@ -362,6 +400,7 @@ fn main() {
             .add_network_str(BNB, "0xdB1d10011AD0Ff90774D0C6Bb92e5C5c8b4461F7")
             .add_network_str(OPTIMISM, "0x1F98431c8aD98523631AE4a59f267346ea31F984")
             .add_network_str(POLYGON, "0x1F98431c8aD98523631AE4a59f267346ea31F984")
+            .add_network_str(LINEA, "0x31FAfd4889FA1269F7a13A66eE0fB458f27D72A9")
             // not official
             .add_network_str(LENS, "0xc3A5b857Ba82a2586A45a8B59ECc3AA50Bc3D0e3")
         // Not available on Gnosis Chain
@@ -438,6 +477,9 @@ fn main() {
             .add_network_str(LENS, "0x3e8C6De9510e7ECad902D005DE3Ab52f35cF4f1b")
             .add_network_str(GNOSIS, "0x3e8C6De9510e7ECad902D005DE3Ab52f35cF4f1b")
             .add_network_str(SEPOLIA, "0x3e8C6De9510e7ECad902D005DE3Ab52f35cF4f1b")
+            .add_network_str(PLASMA, "0x3e8C6De9510e7ECad902D005DE3Ab52f35cF4f1b")
+            // built with evm=London, because deployment reverts on Linea otherwise
+            .add_network_str(LINEA, "0x361350f708f7c0c63c8a505226592c3e5d1faa29")
     });
 
     // Contract for Uniswap's Permit2 contract.
@@ -530,6 +572,7 @@ fn generate_contract_with_config(
     let path = paths::contract_artifacts_dir()
         .join(name)
         .with_extension("json");
+    println!("Generating contract bindings for {name} from {path:?}");
     let contract = TruffleLoader::new()
         .name(name)
         .load_contract_from_file(&path)

@@ -76,7 +76,8 @@ pub mod support {
 #[cfg(test)]
 mod tests {
     use crate::alloy::networks::{
-        ARBITRUM_ONE, AVALANCHE, BASE, BNB, GNOSIS, LENS, MAINNET, OPTIMISM, POLYGON, SEPOLIA,
+        ARBITRUM_ONE, AVALANCHE, BASE, BNB, GNOSIS, LENS, LINEA, MAINNET, OPTIMISM, PLASMA,
+        POLYGON, SEPOLIA,
     };
     use {
         super::*,
@@ -159,6 +160,8 @@ mod tests {
             AVALANCHE,
             BNB,
             LENS,
+            LINEA,
+            PLASMA,
         ] {
             assert_has_deployment_address!(UniswapV3SwapRouterV2 for *network);
             assert_has_deployment_address!(IUniswapV3Factory for *network);
